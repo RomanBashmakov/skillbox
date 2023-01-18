@@ -30,22 +30,18 @@ fun main(args: Array<String>) {
 }
 
 // The 1st way of decrypting_______________________________________________________________________________________
-fun decryptFirstHalf (sourceString: String): String
-{
-    val shiftedString = sourceString.map {char -> char + 1}.joinToString("", "", "")
-    val mappedString5tos = shiftedString.map {char -> if (char == '5') "s" else char}.joinToString("", "", "")
-    val mappedString4tou = mappedString5tos.map {char -> if (char == '4') "u" else char}.joinToString("", "", "")
-    val shiftedStringMinus3 = mappedString4tou.map {char -> char - 3}.joinToString("", "", "")
-    val decryptFirstHalf = shiftedStringMinus3.map {char -> if (char == '0') "o" else char}.joinToString("", "", "")
-    return decryptFirstHalf
+fun decryptFirstHalf(sourceString: String): String {
+    return sourceString.map { c -> c + 1 }.joinToString("")
+        .replace("5", "s")
+        .replace("4", "u")
+        .map { char -> char - 3 }.joinToString("")
+        .replace("0", "o")
 }
 
-fun decryptSecondHalf (sourceString: String): String
-{
-    val reversedString = sourceString.reversed()
-    val shiftedStringMinus4 = reversedString.map {char -> char - 4}.joinToString("", "", "")
-    val decryptSecondHalf = shiftedStringMinus4.map {char -> if (char == '_') " " else char}.joinToString("", "", "")
-    return decryptSecondHalf
+fun decryptSecondHalf(sourceString: String): String {
+    return sourceString.reversed()
+        .map { char -> char - 4 }.joinToString("")
+        .map<Any> { char -> if (char == '_') " " else char }.joinToString("")
 }
 
 // The 2nd way of decrypting_______________________________________________________________________________________
