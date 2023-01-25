@@ -8,7 +8,7 @@ class Dog(energy: Int, weight: Int, maxAge: Int, name: String) : Animal(energy, 
             tryIncrementAge()
             println("$name летит")
         }
-        else println("$name слишком худая, старая или уставшая, чтобы летать")
+        else println("$name слишком худая, старая или уставшая, чтобы бегать")
     }
 
     override fun givingBirth(): Dog
