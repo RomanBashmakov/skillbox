@@ -11,7 +11,7 @@ class Fish(energy: Int, weight: Int, maxAge: Int, name: String) : Animal(energy,
         else println("$name слишком худая, старая или уставшая, чтобы плавать")
     }
 
-    override fun givingBirth(): Animal
+    override fun givingBirth(): Fish
     {
         var aBabyFish = Fish((0..10).random(), (0..5).random(), this.maxAge, "${this.name}${this.children + 1}")
         this.children++

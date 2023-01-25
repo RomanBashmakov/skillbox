@@ -11,7 +11,7 @@ class Dog(energy: Int, weight: Int, maxAge: Int, name: String) : Animal(energy, 
         else println("$name слишком худая, старая или уставшая, чтобы летать")
     }
 
-    override fun givingBirth(): Animal
+    override fun givingBirth(): Dog
     {
         var aPuppy = Dog((0..10).random(), (0..5).random(), this.maxAge, "${this.name}${this.children + 1}")
         this.children++
