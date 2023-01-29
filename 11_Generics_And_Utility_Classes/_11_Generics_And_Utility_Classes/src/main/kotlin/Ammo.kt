@@ -1,9 +1,9 @@
 import kotlin.random.Random
 
 enum class Ammo(var damage: Int, var crit: Int, var koeff: Int) {
-    bullet1(20, 20, 2),
-    bullet2(30, 30, 3),
-    bullet3(40, 40, 4);
+    BULLET1(20, 20, 2),
+    BULLET2(30, 30, 3),
+    BULLET3(40, 40, 4);
 
     fun shot(): Int {
         return if (crit.isEvent()) damage * koeff

@@ -1,9 +1,8 @@
-class MyWarrior(
+open class MyWarrior(
     override var maxHealth: Int,
     override var luckyPossibility: Int,
     override var accuracy: Int,
-    override var weapon: AbstractWeapon,
-    override var name: String
+    override var weapon: AbstractWeapon
 ) : AbstractWarrior() {
 
     override var health: Int = 0

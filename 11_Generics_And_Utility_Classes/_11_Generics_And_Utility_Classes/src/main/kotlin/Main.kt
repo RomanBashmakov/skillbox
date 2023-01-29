@@ -17,8 +17,8 @@ fun main(args: Array<String>) {
 
     println("Вторая часть практической работы")
 
-    var team1 = MyArmy("Team 1", getPositiveInt("Воинов в команде 1:"))
-    var team2 = MyArmy("Team 2", getPositiveInt("Воинов в команде 2:"))
+    var team1 = Team("Team 1", getPositiveInt("Воинов в команде 1:"))
+    var team2 = Team("Team 2", getPositiveInt("Воинов в команде 2:"))
 
     var theBattle = Battle(team1, team2)
     theBattle.fight()

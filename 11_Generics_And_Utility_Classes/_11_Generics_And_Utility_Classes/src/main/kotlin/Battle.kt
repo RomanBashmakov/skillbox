@@ -1,7 +1,9 @@
 
-class Battle(var team1: MyArmy, var team2: MyArmy) {
+class Battle(var team1: Team, var team2: Team) {
 
     var isOver: Boolean = false
+
+    var battleState : BattleState.Progress = BattleState.Progress
 
     fun getState(){
         if (isOver) println("Битва завершена")
@@ -19,6 +21,8 @@ class Battle(var team1: MyArmy, var team2: MyArmy) {
 
     fun fight(){
         while (isAlive()) {
+            println("Битва продолжается")
+
             team1.myArmy.shuffle()// Стреляющие будут определены
             team2.myArmy.shuffle()// случайным образом с помощью перемешивания
 
@@ -28,6 +32,9 @@ class Battle(var team1: MyArmy, var team2: MyArmy) {
 
             team2.myArmy.first().attack(team1.myArmy.first())//первый атакует первого
             team1.updateArmy()
+
+            println("В первой команде осталось ${team1.people()}")
+            println("Во второй команде осталось ${team2.people()}\n")
         }
         whoWin()
     }

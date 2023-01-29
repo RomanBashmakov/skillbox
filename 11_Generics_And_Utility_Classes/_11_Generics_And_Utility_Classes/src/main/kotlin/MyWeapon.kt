@@ -22,7 +22,7 @@ class MyWeapon(
 
     override fun nextBullet(): Ammo {
         if (checkBullets()) reload()
-        return magazine.pop() ?: Ammo.bullet1
+        return magazine.pop() ?: Ammo.BULLET1
     }
 
     override fun checkBullets(): Boolean {
