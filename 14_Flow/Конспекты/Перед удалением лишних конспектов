@@ -1,0 +1,50 @@
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
+import kotlin.random.Random
+
+fun main(args: Array<String>) {
+    val card = Card()
+    card.fillRandomly()
+    
+    
+//    runBlocking {
+//        launch {
+//            intermediateFlow.collect {
+//                println(it)
+//            }
+//        }
+//    }
+}
+
+val intermediateFlow = (0..10)
+    .asFlow()
+    .square()
+    .filter { it % 2 == 0 && it != 0 }
+    .take(3)
+
+fun Flow<Int>.square(): Flow<Int> = transform { value ->
+    return@transform emit(value * value)
+}
+
+object Generator {
+    val flow = kotlinx.coroutines.flow.flow {
+        while (currentCoroutineContext().isActive) {
+            emit(Random.nextInt())
+            delay(1000)
+        }
+    }
+
+    fun flow(): Flow<Int> {
+        return (0..100).asFlow()
+    }
+}
+
+//Ведущий
+object Caller{
+
+}
+
+
